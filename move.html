@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/walkguy.css">
+
+<body ng-app="myApp">
+
+<h1>Sonic's Battles</h1>
+
+<p>Click below and press either Z UP, DOWN, RIGHT, LEFT, SPACE, R</p>
+
+
+        <!--<p> Choose Sonic's action:</p>-->
+        <!--<select ng-model = "action">-->
+        <!--    <option value="spriteAnime">other</option>-->
+        <!--    <option value="spriteStand">Standing</option>-->
+        <!--    <option value="spriteCrouch">Crouch</option>-->
+        <!--    <option value="spriteRun1">Run1</option>-->
+        <!--    <option value="spriteRun2">Run2</option>-->
+        <!--    <option value="spriteJump">Jump</option>-->
+        <!--    <option value="spriteFlying">Fly</option>-->
+        <!--    <option value="spriteBall">Ball</option>-->
+        <!--</select>-->
+
+  <div ng-controller="sonicCtrl" >
+      <input type="text" ng-keydown="keyPressed($event)" ng-keyup="keyReleased($event)" placeholder="click here">
+        <div id = "SonicDiv" class={{classType}}>
+          
+        </div>
+  </div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('sonicCtrl', function($scope){
+   $scope.keyReleased = function(e){
+     e = e || window.event;
+     e.preventDefault();
+     $scope.classType = "spriteStand";
+   };
+   $scope.keyPressed = function (e) {
+     e = e || window.event;
+     e.preventDefault();
+        if (e.keyCode == 90) { //z
+            // alert('presiono enter');
+            console.log('presiono enter');
+            $scope.classType = "spriteStand";
+        }
+        if (e.keyCode == 38) { //up
+            // alert('presiono enter');
+            console.log('presiono enter');
+            $scope.classType = "spriteJump";
+        }
+        if (e.keyCode == 40) { //down
+            // alert('presiono enter');
+            console.log('presiono enter');
+            $scope.classType = "spriteFlying";
+        }
+        if (e.keyCode == 39) { //right
+            // alert('presiono enter');
+            console.log('presiono enter');
+            $scope.classType = "spriteRun2";
+        }
+        if (e.keyCode == 37) { //left
+            // alert('presiono enter');
+            console.log('presiono enter');
+            $scope.classType = "spriteRun2Reverse";
+        }
+        if (e.keyCode == 32) { //space
+            // alert('presiono enter');
+            console.log('presiono enter');
+            $scope.classType = "spriteCrouch";
+        }
+         if (e.keyCode == 82) { //r
+            // alert('presiono enter');
+            console.log('presiono enter');
+            $scope.classType = "spriteBall";
+        }
+        
+        
+        
+        
+    };
+
+
+   
+   $scope.stand = "spriteStand";
+   $scope.crouch = "spriteCrouch";
+   $scope.run1 = "spriteRun1";
+   $scope.run2 = "spriteRun2";
+   $scope.jump = "spriteJump";
+   $scope.flying = "spriteFlying";
+   $scope.ball = "spriteBall";
+//   $scope.getAction = function() {
+//       //if down, crouch
+//       //if right, run1
+//       //if up then jump
+//       //if f the flying
+//       //if space then ball
+//   };
+});
+//Make the DIV element draggagle:
+dragElement(document.getElementById("SonicDiv"));
+
+function dragElement(elmnt) {
+
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  
+    /* if present, the header is where you move the DIV from:*/
+    document.onkeydown = checkKey;
+
+  function checkKey(e){
+
+    e = e || window.event;
+    e.preventDefault();
+    var xPos = 0;
+    var yPos = 0;
+
+    if (e.keyCode == '38') { 
+        // alert("Hello! I am an UP box!");
+    elmnt.style.top = (elmnt.offsetTop - 20) + "px";
+    }
+    else if (e.keyCode == '40') {
+        // alert("Hello! I am an DOWN box!");
+     elmnt.style.top = (elmnt.offsetTop + 20) + "px";
+
+    }
+    else if (e.keyCode == '37') { //run left
+        // alert("Hello! I am an LEFT box!");
+        elmnt.style.left = (elmnt.offsetLeft - 30) + "px";
+
+    }
+    else if (e.keyCode == '39') {//run right
+        // alert("Hello! I am an RIGHT box!");
+    elmnt.style.left = (elmnt.offsetLeft + 30) + "px";
+
+    }
+    
+     else if (e.keyCode == '82') { //r for roll
+        // alert("Hello! I am an RIGHT box!");
+    elmnt.style.left = (elmnt.offsetLeft + 30) + "px";
+    // elmnt.style.top = (elmnt.offsetTop + 20) + "px";
+    // elmnt.style.left = (elmnt.offsetLeft - 30) + "px";
+    // // elmnt.style.top = (elmnt.offsetTop - 20) + "px";
+    }
+    else if (e.keyCode == '32') { //space
+        //elmnt.style.top = (elmnt.offsetTop + 20) + "px";
+        }
+  }
+  
+
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+        
+
+</body>
+</html>

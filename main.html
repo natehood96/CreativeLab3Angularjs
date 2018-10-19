@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/transform.css">
+<script>
+  var app = angular.module('myApp', [])
+  app.controller('MainCtrl', function($scope) {
+  $scope.boxClass = true;
+});
+</script>
+<div ng-app="myApp" ng-controller="MainCtrl">
+  <div class="container">
+     <select ng-model = "action">
+            <option value="spriteStand">Standing</option>
+            <option value="spriteCrouch">Crouch</option>
+            <option value="spriteRun1">Run1</option>
+            <option value="spriteRun2">Run2</option>
+            <option value="spriteJump">Jump</option>
+            <option value="spriteFlying">Fly</option>
+            <option value="spriteBall">Ball</option>
+        </select>
+    <input type="checkbox" ng-model="boxClass" />
+    <div class="box rotate" ng-class="{'box': boxClass, 'action': !boxClass} "></div>
+  </div>
+</div>
+</html>
