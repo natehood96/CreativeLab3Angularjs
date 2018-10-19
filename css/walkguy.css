@@ -11,6 +11,32 @@
     background-color: #2196F3;
     color: #fff;
 }
+#instructions{
+    border-color: white;
+    color: red;
+}
+h1{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("http://18.222.254.142/html/Lab3AngularCreative/images/SonicImages/Level_Sonic.png");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .spriteAnime{
     background: url('https://cdn.codeandweb.com/blog/2014/11/05/animate-sprites-in-css-with-texturepacker/capguy-walk.png');
@@ -26,7 +52,6 @@
 .spriteStand{
     /*-webkit-transform: rotate(360deg);*/
     background: url("http://18.222.254.142/html/Lab3AngularCreative/images/SonicImages/StandStill_Sonic.png");
-    background-color: white;
     width: calc(300px/5);
     height: 85px;
     animation-name: sonic-standing;

@@ -2,12 +2,17 @@
 <html>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/walkguy.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
 
 <body ng-app="myApp">
+    <div class="bg">
+<div id=instructions>
+<h1>Sonic's adventures</h1>
 
-<h1>Sonic's Battles</h1>
-
-<p>Click below and press either Z UP, DOWN, RIGHT, LEFT, SPACE, R</p>
+<p><br>Click below and press either UP, DOWN, RIGHT, LEFT, SPACE, R</br></p>
+</div>
 
 
         <!--<p> Choose Sonic's action:</p>-->
@@ -28,6 +33,7 @@
           
         </div>
   </div>
+</div>
 
 <script>
 var app = angular.module('myApp', []);
@@ -156,7 +162,5 @@ function dragElement(elmnt) {
   }
 }
 </script>
-        
-
 </body>
 </html>
